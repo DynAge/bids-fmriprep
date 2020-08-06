@@ -1,4 +1,4 @@
-FROM poldracklab/fmriprep:1.5.10
+FROM poldracklab/fmriprep:master
 
 MAINTAINER Flywheel <support@flywheel.io>
 
@@ -8,7 +8,7 @@ RUN apt-get update && \
     zip \
     nodejs \
     tree && \
-    rm -rf /var/lib/apt/lists/* 
+    rm -rf /var/lib/apt/lists/*
 # The last line above is to help keep the docker image smaller
 
 RUN npm install -g bids-validator@1.4.0
@@ -26,7 +26,7 @@ WORKDIR ${FLYWHEEL}
 
 # Save docker environ
 ENV PYTHONUNBUFFERED 1
-RUN python -c 'import os, json; f = open("/tmp/gear_environ.json", "w"); json.dump(dict(os.environ), f)' 
+RUN python -c 'import os, json; f = open("/tmp/gear_environ.json", "w"); json.dump(dict(os.environ), f)'
 
 # Copy executable/manifest to Gear
 COPY run.py ${FLYWHEEL}/run.py
