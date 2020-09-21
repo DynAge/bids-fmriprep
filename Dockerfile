@@ -1,4 +1,4 @@
-FROM poldracklab/fmriprep:master
+FROM poldracklab/fmriprep:20.1.3
 
 MAINTAINER Flywheel <support@flywheel.io>
 
